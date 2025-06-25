@@ -5,6 +5,11 @@
 
     <br>
 
+    <div style="display: flex; justify-content: right">
+        <input type="search" placeholder="Search" wire:model.live="searchData">
+    </div>
+    <br>
+
     <ul class="list">
         @foreach($books as $book)
             <li wire:key="{{ $book->id }}">

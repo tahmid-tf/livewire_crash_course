@@ -13,7 +13,7 @@ Step 1: Add wire:navigate to anchor tags,
     {
         $validatedData = $this->validate();
         Book::create($validatedData);
-        $this->redirect('/', navigate: true);
+        $this->redirect('/', navigate: true); //live redirect
     }
 
 Just set the navigate: true and all is set

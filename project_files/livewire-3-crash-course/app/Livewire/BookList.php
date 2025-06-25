@@ -9,6 +9,7 @@ use Livewire\Attributes\Title;
 class BookList extends Component
 {
     public $name = "Mario";
+    public $searchData = "";
 
     #[Title('Book List - Home')]
 
@@ -17,11 +18,20 @@ class BookList extends Component
         $book->delete();
     }
 
+    public function books()
+    {
+        if ($this->searchData == "") {
+          return Book::all();
+        }else{
+            return Book::where('title', 'like', '%' . $this->searchData . '%')->get();
+        }
+    }
+
     public function render()
     {
         return view('livewire.book-list',
             [
-                'books' => Book::all(),
+                'books' => $this->books(),
             ]);
     }
 }
