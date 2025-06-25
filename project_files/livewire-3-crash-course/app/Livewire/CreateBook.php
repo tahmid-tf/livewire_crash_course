@@ -23,7 +23,7 @@ class CreateBook extends Component
     {
         $validatedData = $this->validate();
         Book::create($validatedData);
-        $this->redirect('/');
+        $this->redirect('/', navigate: true);
     }
 
     public

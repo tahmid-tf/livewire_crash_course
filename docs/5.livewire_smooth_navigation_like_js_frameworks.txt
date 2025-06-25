@@ -1,0 +1,19 @@
+Step 1: Add wire:navigate to anchor tags,
+
+  <a
+    wire:navigate
+    @class(['active' => request()->is('/')])
+    href="/">
+    Book List
+  </a>
+
+**** adding dynamic integration also to redirect() methods with example,
+
+    public function save()
+    {
+        $validatedData = $this->validate();
+        Book::create($validatedData);
+        $this->redirect('/', navigate: true);
+    }
+
+Just set the navigate: true and all is set
